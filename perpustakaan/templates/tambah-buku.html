@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	
+	<div class="row">
+		<div class="col-md-4">
+			<h1>Halaman Tambah Buku</h1>
+			{% if pesan %}
+				<div class="alert alert-primary">{{pesan}}</div>
+			{% endif %}
+			<form action="/tambah-buku/" method="POST">
+				{% csrf_token %}
+				{{form}}
+				<button type="submit" class="btn btn-primary btn-sm mt-3">
+					Save Data
+				</button>
+			</form>	
+		</div>
+	</div>
+
+{% endblock %}

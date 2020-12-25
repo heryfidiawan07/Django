@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	
+	<div class="row">
+		<div class="col-md-4">
+			<h1>Edit Buku</h1>
+			{% for message in messages %}
+				{% if message %}
+					<div class="alert alert-primary">{{message}}</div>
+				{% endif %}
+			{% endfor %}
+			<!-- <form action="/buku/edit/{{buku.id}}" method="POST"> -->
+			<form action="{% url 'ubah_buku' buku.id %}" method="POST">
+				{% csrf_token %}
+				{{form}}
+				<button type="submit" class="btn btn-primary btn-sm mt-3">
+					Update Data
+				</button>
+				<a href="/buku"></a>
+			</form>	
+		</div>
+	</div>
+
+{% endblock %}
